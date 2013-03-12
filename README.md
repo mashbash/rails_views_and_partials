@@ -43,7 +43,7 @@ for every controller action, rails tries to find a layout and a view correspondi
 Sinatra apps we were building only had 1 layout file
 
 
-# Views:
+# Views
 For the proper syntax and detailed documentation
 http://apidock.com/rails/ActionController/Base/render
  
@@ -105,7 +105,7 @@ end
       - e.g. layout “special”, :except => :index
 
 
-2) Partials:
+# Partials:
 Why use partials?
 Can create an “application” folder in your views directory for miscellaneous partials
 do this because all controllers inherit from application controller...so when it can’t find a partial you’ve called in the corresponding controller’s views directory, it looks in application.
