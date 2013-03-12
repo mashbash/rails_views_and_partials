@@ -10,7 +10,7 @@ By default, Rails will serve the results of a rendering operation with the MIME 
 If @book.special? evaluates to true, Rails will start the rendering process to dump the @bookvariable into the special_show view. But this will not stop the rest of the code in the show action from running, and when Rails hits the end of the action, it will start to render the regular_show view – and throw an error. The solution is simple: make sure that you have only one call to render or redirectin a single code path. One thing that can help is and return.
 
 
-Views and Partials:
+# Views and Partials:
 
 1) Views:
 What is a view?
@@ -42,42 +42,49 @@ things we think shouldn’t be shown
 for every controller action, rails tries to find a layout and a view corresponding to that controller action.  it then sticks the view file inside the layout file at ‘<%= yield %>’
 Sinatra apps we were building only had 1 layout file
 
-Views:
 
+# Views:
+For the proper syntax and detailed documentation
 http://apidock.com/rails/ActionController/Base/render
-- for the proper syntax and detailed documentation
+ 
 
 Render
-With the powers of Action View, views can be implicitly rendered.
-For example, __________.
-Here, Action View is looking for a folder in your views folder with the same name as your controller...and then for a file with the same name as the method in your controller.
-If it finds, it automatically renders
-There is also a method called ‘render’ that is used all over Rails...
-So why would you ever use render?
-In the controllers
-if you want to refer to another controller action’s view
-eg if a create action fails, you might want to render ‘new’
-render nothing to signal success for ajax
-render json for response to ajax request
-In the views
-render partials
+- With the powers of Action View, views can be implicitly rendered.
+```text
+class UsersController < ApplicationController
+  
+  def index
+    @users = User.all
+  end
+end  
+```
+- Here, Action View is looking for a folder in your views folder with the same name as your controller...and then for a file with the same name as the method in your controller.
+- If it finds it, it automatically renders
+- There is also a method called ‘render’ that is used all over Rails...
+- So why would you ever use render?
+  - In the controllers
+    - if you want to refer to another controller action’s view
+    - e.g. if a create action fails, you might want to render ‘new’
+    - render nothing to signal success for ajax
+    - render json for response to ajax request
+  - In the views
+    - render partials
+- Render can be called in a number of ways:
+  http://guides.rubyonrails.org/layouts_and_rendering.html (2.2.5)
 
-Render can be called in a number of ways:
-http://guides.rubyonrails.org/layouts_and_rendering.html (2.2.5)
-
-Options you can pass to render:
-:content_type, e.g. ‘application/json’, ‘application/xml’
-:layout, e.g. if you have a specific layout you’d like to use
-:status, e.g. set server status, :status => 500, :status => :forbidden
-:location, e.g. can set location header
-Give example of one of these?
+- Options you can pass to render:
+  - :content_type, e.g. ‘application/json’, ‘application/xml’
+  - :layout, e.g. if you have a specific layout you’d like to use
+  - :status, e.g. set server status, :status => 500, :status => :forbidden
+  - :location, e.g. can set location header
+  - Give example of one of these?
 
 
-Layout 
-You can create new layout files specific to rendering views particular to that controller
-But take note! When you do so, it automatically defaults to that layout. In order to revert to the original default, you’d have to specifically call on the layout you want when you render a view. 
-e.g. render :index, :layout => false (means don’t yield the view you are going to render to any layout)
-You can call on other layouts by replacing the false with the name of the layout you want to use
+# Layout 
+- You can create layout files specific to a controller, or even as specific as an action in a controller
+- Take note! When you do so, it automatically defaults to that layout. In order to revert to the original default, you’d have to specifically call on the layout you want when you render a view. 
+- e.g. render :index, :layout => false (means don’t yield the view you are going to render to any layout, basically means no layout)
+- You can call on other layouts by specifying their file names
 
 Layout Basics
 To find current layout, Rails first looks for a file in the apps/views/layouts with the same base name as the controller
