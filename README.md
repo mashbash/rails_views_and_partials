@@ -105,7 +105,7 @@ end
       - e.g. layout “special”, :except => :index
 
 
-# Partials:
+# Partials
 Why use partials?
 Can create an “application” folder in your views directory for miscellaneous partials
 do this because all controllers inherit from application controller...so when it can’t find a partial you’ve called in the corresponding controller’s views directory, it looks in application.
