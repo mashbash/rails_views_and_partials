@@ -1,21 +1,6 @@
 rails_views_and_partials
 ========================
-
-The render method can do without a view completely, if you’re willing to use the :inline option to supply ERB as part of the method call. This is perfectly valid:
-
-  reder :inline => “<% products.each do |p| %><p><%= p.name %></p><% end %>”
-
-By default, Rails will serve the results of a rendering operation with the MIME content-type oftext/html (or application/json if you use the :json option, or application/xml for the :xmloption.).
-
-If @book.special? evaluates to true, Rails will start the rendering process to dump the @bookvariable into the special_show view. But this will not stop the rest of the code in the show action from running, and when Rails hits the end of the action, it will start to render the regular_show view – and throw an error. The solution is simple: make sure that you have only one call to render or redirectin a single code path. One thing that can help is and return.
-
-
 # Views and Partials
-
-
-for every controller action, rails tries to find a layout and a view corresponding to that controller action.  it then sticks the view file inside the layout file at ‘<%= yield %>’
-Sinatra apps we were building only had 1 layout file
-
 
 # Views
 For the proper syntax and detailed documentation
@@ -38,7 +23,7 @@ end
 - So why would you ever use render?
   - In the controllers
     - if you want to refer to another controller action’s view
-    - e.g. if a create action fails, you might want to render ‘new’
+      - e.g. if a create action fails, you might want to render ‘new’
     - render nothing to signal success for ajax
     - render json for response to ajax request
   - In the views
@@ -51,13 +36,12 @@ end
   - :layout, e.g. if you have a specific layout you’d like to use
   - :status, e.g. set server status, :status => 500, :status => :forbidden
   - :location, e.g. can set location header
-  - Give example of one of these?
-
+    - What is a location header? http://en.wikipedia.org/wiki/HTTP_location 
 
 # Layout 
 - You can create layout files specific to a controller, or even as specific as an action in a controller
 - Take note! When you do so, it automatically defaults to that layout. In order to revert to the original default, you’d have to specifically call on the layout you want when you render a view. 
-- e.g. render :index, :layout => false (means don’t yield the view you are going to render to any layout, basically means no layout)
+- e.g. render :index, :layout => false (means no layout to apply)
 - You can call on other layouts by specifying their file names
 
 1) Layout Basics
@@ -80,7 +64,10 @@ end
 
 
 # Partials
-Why use partials?
-Can create an “application” folder in your views directory for miscellaneous partials
-do this because all controllers inherit from application controller...so when it can’t find a partial you’ve called in the corresponding controller’s views directory, it looks in application.
+- Why use partials?
+  - When you have repetitive html code used across multiple files, you can extract them and put them into one file called a partial
+  - A partial file is always named with an underscore "_" at the front of it
+  - If you use a partial file across different folders in the view, e.g. a user.html.erb file and admin.html.erb file uses a partial, create an application folder and put the partial there
+    - doing so will let you have access to the partial just by referring to it's filename without needing to specify what directory it is in
+    - this works this way because all controllers inherit from application controller, so when it can't find a partial you've called in the corresponding controller's views directory, it looks in application
 
