@@ -10,7 +10,7 @@ By default, Rails will serve the results of a rendering operation with the MIME 
 If @book.special? evaluates to true, Rails will start the rendering process to dump the @bookvariable into the special_show view. But this will not stop the rest of the code in the show action from running, and when Rails hits the end of the action, it will start to render the regular_show view – and throw an error. The solution is simple: make sure that you have only one call to render or redirectin a single code path. One thing that can help is and return.
 
 
-# Views and Partials:
+# Views and Partials
 
 1) Views:
 What is a view?
