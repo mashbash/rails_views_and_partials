@@ -12,29 +12,6 @@ If @book.special? evaluates to true, Rails will start the rendering process to d
 
 # Views and Partials
 
-1) Views:
-What is a view?
-
--What is Action View?
-  - Action View and Action Controller are the two major components of Action Pack. In Rails, web requests are handled by Action Pack, which splits the work into a controller part (performing the logic) and a view part (rendering a template).
-  - Action View is then responsible for compiling the response.
-  - Render method and options
-  - layouts
-
-#Render
-- When you call ‘render’ where does it look for files?
-  - First it looks at which controller it exists in, it then goes to the views folder and looks for a view file with a corresponding file. 
-  - It renders the file that is called in 
-
-Render has many permuations of arguments
-
-Rendering collections
-
-things we think people should know and understand
-
-things we think people should see
-
-things we think shouldn’t be shown
 
 for every controller action, rails tries to find a layout and a view corresponding to that controller action.  it then sticks the view file inside the layout file at ‘<%= yield %>’
 Sinatra apps we were building only had 1 layout file
@@ -45,7 +22,7 @@ For the proper syntax and detailed documentation
 http://apidock.com/rails/ActionController/Base/render
  
 
-Render
+# Render
 - With the powers of Action View, views can be implicitly rendered.
 ```text
 class UsersController < ApplicationController
