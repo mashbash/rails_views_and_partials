@@ -21,13 +21,10 @@ What is a view?
   - Render method and options
   - layouts
 
-what is render doing?
-
-When you call ‘render’ where does it look for files?
-First it looks at which controller it exists in, it then goes to the views folder and looks for a view file with a corresponding file. 
-It renders the file that is called in 
-
-How does ‘render’ know if you you’re trying to render a partial or a view?
+#Render
+- When you call ‘render’ where does it look for files?
+  - First it looks at which controller it exists in, it then goes to the views folder and looks for a view file with a corresponding file. 
+  - It renders the file that is called in 
 
 Render has many permuations of arguments
 
