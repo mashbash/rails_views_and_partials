@@ -15,11 +15,11 @@ If @book.special? evaluates to true, Rails will start the rendering process to d
 1) Views:
 What is a view?
 
-What is Action View?
-Action View and Action Controller are the two major components of Action Pack. In Rails, web requests are handled by Action Pack, which splits the work into a controller part (performing the logic) and a view part (rendering a template).
-Action View is then responsible for compiling the response.
-Render method and options
-layouts
+-What is Action View?
+  - Action View and Action Controller are the two major components of Action Pack. In Rails, web requests are handled by Action Pack, which splits the work into a controller part (performing the logic) and a view part (rendering a template).
+  - Action View is then responsible for compiling the response.
+  - Render method and options
+  - layouts
 
 what is render doing?
 
