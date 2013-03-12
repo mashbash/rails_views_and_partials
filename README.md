@@ -86,22 +86,23 @@ end
 - e.g. render :index, :layout => false (means don’t yield the view you are going to render to any layout, basically means no layout)
 - You can call on other layouts by specifying their file names
 
-Layout Basics
-To find current layout, Rails first looks for a file in the apps/views/layouts with the same base name as the controller
-If Rails finds no such controller-specific layout, it will use app/views/layouts/application.html.erb as the default
-Specifying layouts for controllers
-Need to know
-You can override default layout conventions by using the layout declaration
-in the controller, at the top of the class, put e.g. layout “special”
-With this declaration, all methods in that controller class will use the “app/views/layouts/special.html.erb” for their layout
-If you want a layout to apply for the entire application, we do what we did above but put it in the ApplicationController class
-Layout hierarchy - Layout declarations cascade downward in the hierarchy and more specific layout declarations always override more general ones. (2.2.12.4)
-Good to know
-You can choose layouts at runtime. 
-Basically means you can pick a layout depending on the condition set. e.g. a ‘special’ layout for a vip customer. (2.2.12.2 )
-Conditional layouts
-apply a layout only on certain methods in the controller, you can use :only or :except
-e.g. layout “special”, :except => :index
+1) Layout Basics
+- To find current layout, Rails first looks for a file in the apps/views/layouts with the same base name as the controller
+- If Rails finds no such controller-specific layout, it will use app/views/layouts/application.html.erb as the default
+
+2)Specifying layouts for controllers
+  - Need to know
+    - You can override default layout conventions by using the layout declaration
+    - In the controller, right below the class, put e.g. layout “special”
+    - With this declaration, all methods in that controller class will use the “app/views/layouts/special.html.erb” for their layout
+    - If you want a layout to apply for the entire application, we do what we did above but put it in the ApplicationController class
+    - Layout hierarchy - Layout declarations cascade downward in the hierarchy and more specific layout declarations always override more general ones. (2.2.12.4)
+  - Good to know
+    - You can choose layouts at runtime. 
+    - Basically means you can pick a layout depending on the condition set. e.g. a ‘special’ layout for a vip customer. (2.2.12.2 )
+    - Conditional layouts
+      - apply a layout only on certain methods in the controller, you can use :only or :except
+      - e.g. layout “special”, :except => :index
 
 
 2) Partials:
