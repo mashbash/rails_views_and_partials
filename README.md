@@ -105,5 +105,6 @@ end
   - If you use a partial file across different folders in the view, e.g. a user.html.erb file and admin.html.erb file uses a partial, create an application folder and put the partial there
     - doing so will let you have access to the partial just by referring to it's filename without needing to specify what directory it is in
     - this works this way because all controllers inherit from application controller, so when it can't find a partial you've called in the corresponding controller's views directory, it looks in application
+  - Apart from passing local variables into a partial, you can also pass a collection. Not commonly used but good to just know of.
 
 
